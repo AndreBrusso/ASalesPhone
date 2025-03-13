@@ -1,0 +1,146 @@
+﻿@model ASalesPhone.Models.Cadastro
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    Layout = null;
+}
+
+<style>    
+   
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .button-entrar {
+        display: inline-block;
+        background: #6a5acd;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    .header-bg {
+        background-color: #332585;
+        font-family: Zebrazil;
+        padding: 20px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .form-cadastro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 89.7vh;
+        background: #c2bdf5;
+    }
+
+    .container {
+        display: flex;
+        background: white;
+        width: 1000px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .image-section {
+        flex: 1;
+        background: #320c71;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+        .image-section img {
+            width: 100%;
+        }
+
+    .form-section {
+        flex: 1;
+        padding: 40px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    input {
+        width: calc(50% - 10px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .gender {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+    }
+
+    .button {
+        background: #6a5acd;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <header class="header-bg">
+        <div class="header">
+            <h1 class="titulo-header">Sales Phone</h1>
+        </div>
+    </header>
+    <div class="form-cadastro">
+        <div class="container">
+            <div class="image-section">
+                <img src="/2805141.jpg" alt="Imagem Celular">
+            </div>
+            <div class="form-section">
+                <h2>Cadastre-se</h2>
+                <form asp-action="Create" asp-controller="cadastro" method="post">
+                    <input asp-for="Nome" type="text" placeholder="Nome" required>
+                    <input asp-for="CPF" type="text" placeholder="CPF" required>
+                    <input asp-for="Email" type="email" placeholder="E-mail" class="full-width" required>
+                    <input asp-for="Celular" type="tel" placeholder="(xx) xxxx-xxxx" required>
+                    <input asp-for="Senha" type="password" placeholder="Senha" required>
+                    <button type="submit" asp-action="Create" value="Create" class="button"><a href="">cadastrar</a></button>
+                </form>
+                <button class="button-entrar"><a href="#">Login</a></button>
+            </div>
+        </div>
+    </div>
+</body>
