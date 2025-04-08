@@ -1,15 +1,18 @@
-﻿@model ASalesPhone.Models.Cadastro
-
+﻿@model ASalesPhone.Models.Usuario
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Login";
+}
+
+@{
+    ViewBag.Title = "Login";
 }
 @{
     Layout = null;
 }
 
-<style>    
-   
+<style>
+
     * {
         margin: 0;
         padding: 0;
@@ -130,16 +133,20 @@
                 <img src="/2805141.jpg" alt="Imagem Celular">
             </div>
             <div class="form-section">
-                <h2>Cadastre-se</h2>
-                <form asp-action="Create" asp-controller="Cadastro" method="post">
-                    <input asp-for="Nome" type="text" placeholder="Nome" required>
-                    <input asp-for="CPF" type="text" placeholder="CPF" required>
-                    <input asp-for="Email" type="email" placeholder="E-mail" class="full-width" required>
-                    <input asp-for="Celular" type="tel" placeholder="(xx) xxxx-xxxx" required>
-                    <input asp-for="Senha" type="password" placeholder="Senha" required>
-                    <button type="submit" asp-action="Create" value="Create" class="button"><a href="">cadastrar</a></button>
+                <h2>Login</h2>
+                @if (ViewBag.Mensagem != null)
+                {
+                    <div style="color:red; text-align:center; margin-bottom:10px;">
+                        @ViewBag.Mensagem
+                    </div>
+                }
+                <form asp-action="Login" asp-controller="Login" method="post">
+                    <input type="email" name="Email" placeholder="E-mail" class="full-width" required />
+                    <input type="password" name="Senha" placeholder="Senha" class="full-width" required />
+                    <button asp-controller="Logins" asp-action="Login" type="submit" class="button">Fazer Login</button>
+
+
                 </form>
-                <button class="button-entrar"><a asp-controller ="Cadastros" asp-action="Login">Login</a></button>
             </div>
         </div>
     </div>
