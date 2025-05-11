@@ -1,5 +1,6 @@
 using ASalesPhone.Data;
 using Microsoft.EntityFrameworkCore;
+using ASalesPhone.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ string mySqlConnection = builder.Configuration.GetConnectionString("ASalesPhoneC
 
 builder.Services.AddDbContext<ASalesPhoneContext>(options =>
     options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
+
+builder.Services.AddScoped<CadastroService>();
+builder.Services.AddScoped<EstoqueCelularesService>();
 
 var app = builder.Build();
 

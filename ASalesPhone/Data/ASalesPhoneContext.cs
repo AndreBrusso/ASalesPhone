@@ -17,5 +17,7 @@ namespace ASalesPhone.Data
         public DbSet<ASalesPhone.Models.Cadastro> Cadastro { get; set; }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<EstoqueCelulares> EstoqueCelulares { get; set; }
     }
 }
