@@ -36,11 +36,12 @@ namespace ASalesPhone.Controllers
             return View();
         }
 
+        public IActionResult FuncionarioLogin()
+        {
+            return View();
+        }
 
 
-        // POST: Cadastros/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Nome,CPF,Email,Celular,Senha")] Cadastro cadastro)

@@ -19,5 +19,7 @@ namespace ASalesPhone.Data
         public DbSet<Usuario> Usuarios { get; set; }
 
         public DbSet<EstoqueCelulares> EstoqueCelulares { get; set; }
+
+        public DbSet<CadastroFuncionario> CadastroFuncionarios { get; set; }
     }
 }

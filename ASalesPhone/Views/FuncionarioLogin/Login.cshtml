@@ -1,27 +1,19 @@
-﻿@model ASalesPhone.Models.Cadastro
-
-
 @{
-    ViewData["Title"] = "Index";
-}
-@{
+    ViewData["Title"] = "Login Colaborador";
     Layout = null;
 }
 
-<style>    
-   
+<style>
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: Arial, sans-serif;
     }
-
     a {
         text-decoration: none;
         color: #fff;
     }
-
     .button-entrar {
         display: inline-block;
         background: #6a5acd;
@@ -31,20 +23,17 @@
         border-radius: 5px;
         margin-top: 20px;
     }
-
     .header-bg {
         background-color: #332585;
         font-family: Zebrazil;
         padding: 20px;
     }
-
     .header {
         display: flex;
         justify-content: center;
         box-sizing: border-box;
         padding: 10px;
     }
-
     .form-cadastro {
         display: flex;
         justify-content: center;
@@ -52,7 +41,6 @@
         height: 89.7vh;
         background: #c2bdf5;
     }
-
     .container {
         display: flex;
         background: white;
@@ -60,7 +48,6 @@
         border-radius: 10px;
         overflow: hidden;
     }
-
     .image-section {
         flex: 1;
         background: #320c71;
@@ -69,44 +56,31 @@
         align-items: center;
         padding: 20px;
     }
-
-        .image-section img {
-            width: 100%;
-        }
-
+    .image-section img {
+        width: 100%;
+    }
     .form-section {
         flex: 1;
         padding: 40px;
     }
-
     h2 {
         text-align: center;
         margin-bottom: 20px;
     }
-
     form {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
     }
-
     input {
         width: calc(50% - 10px);
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
     }
-
     .full-width {
         width: 100%;
     }
-
-    .gender {
-        display: flex;
-        gap: 10px;
-        margin: 10px 0;
-    }
-
     .button {
         background: #6a5acd;
         color: white;
@@ -130,22 +104,19 @@
                 <img src="/2805141.jpg" alt="Imagem Celular">
             </div>
             <div class="form-section">
-                <h2>Cadastre-se</h2>
-                <form asp-action="Create" asp-controller="Cadastro" method="post">
-                    <input asp-for="Nome" type="text" placeholder="Nome" required>
-                    <input asp-for="CPF" type="text" placeholder="CPF" required>
-                    <input asp-for="Email" type="email" placeholder="E-mail" class="full-width" required>
-                    <input asp-for="Celular" type="tel" placeholder="(xx) xxxx-xxxx" required>
-                    <input asp-for="Senha" type="password" placeholder="Senha" required>
-                    <button type="submit" asp-action="Create" value="Create" class="button"><a href="">cadastrar</a></button>
+                <h2>Login Colaborador</h2>
+                @if (ViewBag.Mensagem != null)
+                {
+                    <div style="color:red; text-align:center; margin-bottom:10px;">
+                        @ViewBag.Mensagem
+                    </div>
+                }
+                <form asp-action="Login" asp-controller="FuncionarioLogin" method="post">
+                    <input type="email" name="email" placeholder="E-mail" class="full-width" required />
+                    <input type="password" name="senha" placeholder="Senha" class="full-width" required />
+                    <button asp-controller="FuncionarioLogin" asp-action="Login" type="submit" class="button">Fazer Login</button>
                 </form>
-                <button class="button-entrar"><a asp-controller ="Cadastros" asp-action="Login">Login</a></button>
-                <button class="button-entrar"><a asp-controller="Cadastros" asp-action="FuncionarioLogin">Colaborador</a></button>
             </div>
         </div>
     </div>
-</body>
-
-<body>
-</body>
-</html>
+</body> 

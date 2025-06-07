@@ -37,7 +37,7 @@ public class LoginsController : Controller
             return View("~/Views/Cadastros/Login.cshtml");
         }
 
-        
+        // Sucesso: Armazenar info na sessão, redirecionar
         HttpContext.Session.SetString("UsuarioEmail", usuario.Email);
         return RedirectToAction("Logado", "VendaPhones");
 

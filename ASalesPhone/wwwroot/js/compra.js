@@ -10,7 +10,6 @@ function realizarCompra(modelo) {
     .then(data => {
         if (data.success) {
             alert('Compra realizada com sucesso!');
-            // Opcional: redirecionar para outra página ou atualizar o carrinho
         } else {
             alert(data.message || 'Não foi possível realizar a compra.');
         }
